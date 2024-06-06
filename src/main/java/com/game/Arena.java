@@ -23,4 +23,8 @@ public class Arena {
             defender = player1;
         }
     }
+
+    private int rollDice(){
+        return random.nextInt(6) + 1;
+    }
 }
