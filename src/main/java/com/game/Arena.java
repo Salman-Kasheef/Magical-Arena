@@ -62,4 +62,14 @@ public class Arena {
     private int rollDice(){
         return random.nextInt(6) + 1;
     }
+
+    public Player getWinner(){
+        if (player1.getHealth() <= 0){
+            return player2;
+        } else if (player2.getHealth() <= 0) {
+            return player1;
+        } else {
+            return null; // no winner 
+        }
+    }
 }
