@@ -7,10 +7,10 @@ public class Arena {
     private final Player player2;
     private final Random random;
 
-    public Arena(Player player1, Player player2, Random random) {
+    public Arena(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
-        this.random = random;
+        this.random = new Random();
     }
 
     public void fight(){
@@ -43,7 +43,7 @@ public class Arena {
         int defense = defenseRoll * defender.getStrength();
 
         int damage = attackDamage - defense;
-        if (defense > 0){
+        if (damage > 0){
             int initialHealth = defender.getHealth();
             defender.reduceHealth(damage);
             System.out.println(attacker.getName() + " attacks! Rolls: " + attackRoll + " (Attack damage: " + attackRoll + " * " + attacker.getAttack() + " = " + attackDamage + ")");
@@ -69,7 +69,7 @@ public class Arena {
         } else if (player2.getHealth() <= 0) {
             return player1;
         } else {
-            return null; // no winner 
+            return null; // no winner
         }
     }
 }
